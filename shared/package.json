@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "shared",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "chrome-types": "^0.1.347"
+  }
+}
