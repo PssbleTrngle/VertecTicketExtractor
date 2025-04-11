@@ -20,5 +20,6 @@
     "shared",
     "popup",
     "scripts"
-  ]
+  ],
+  "packageManager": "pnpm@10.2.1"
 }
