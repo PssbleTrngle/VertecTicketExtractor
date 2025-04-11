@@ -31,6 +31,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 23
+          registry-url: "https://registry.npmjs.org"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -39,6 +40,6 @@ jobs:
               args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - run: pnpm run build
-      - run: pnpm publish
+      - run: pnpm publish --provenance --access public
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

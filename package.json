@@ -7,6 +7,10 @@
     "build": "pnpm --filter popup build && pnpm --filter scripts build",
     "bundle": "pnpm pack --pack-destination build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PssbleTrngle/SolarlogTicketExtractor.git"
+  },
   "files": [
     "manifest.json",
     "scripts/dist",
