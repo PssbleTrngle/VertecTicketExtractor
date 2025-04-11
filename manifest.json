@@ -3,8 +3,21 @@
   "description": "Created vertec text entry containing ticket IDs",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "tabs", "storage"],
   "action": {
     "default_popup": "popup/dist/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://solarlog.atlassian.net/browse/*"],
+      "css": ["scripts/dist/content.css"],
+      "js": ["scripts/dist/content.js"]
+    }
+  ],
+  "icons": {
+    "48": "scripts/dist/pwa-48x48.png",
+    "128": "scripts/dist/pwa-128x128.png",
+    "256": "scripts/dist/pwa-256x256.png",
+    "512": "scripts/dist/pwa-512x512.png"
   }
 }

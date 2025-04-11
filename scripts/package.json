@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "scripts",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vite-pwa/assets-generator": "^1.0.0",
+    "shared": "workspace:*",
+    "vite": "^6.0.4"
+  }
+}

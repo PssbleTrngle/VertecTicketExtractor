@@ -1,82 +1,74 @@
-:root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-
-	color: #222;
-	background-color: #ffffff;
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
-}
-
-body {
-	margin: 0;
-	display: flex;
-	align-items: center;
-	min-height: 100vh;
+@keyframes bounce {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
 }
 
 #app {
-	max-width: 1280px;
-	margin: 0 auto;
-	text-align: center;
-}
+	font-family: sans-serif;
+	min-width: 400px;
+	padding: 0.3rem;
 
-img {
-	margin-bottom: 1.5rem;
-}
+	.copy {
+		padding: 0.5em;
+		background: #aaa5;
+		border-radius: 0.4em;
 
-img:hover {
-	filter: drop-shadow(0 0 2em #673ab8aa);
-}
+		user-select: none;
+		cursor: copy;
 
-section {
-	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1.5rem;
-}
-
-.resource {
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	text-align: left;
-	text-decoration: none;
-	color: #222;
-	background-color: #f1f1f1;
-	border: 1px solid transparent;
-}
-
-.resource:hover {
-	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
-}
-
-@media (max-width: 639px) {
-	#app {
-		margin: 2rem;
+		&:active {
+			animation: bounce 0.3s ease;
+		}
 	}
-	section {
-		margin-top: 5rem;
-		grid-template-columns: 1fr;
-		row-gap: 1rem;
-	}
-}
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		color: #ccc;
-		background-color: #1a1a1a;
+	.copy-section {
+		margin-top: 1em;
+
+		.copy {
+			margin: 0.5em 0;
+		}
 	}
-	.resource {
-		color: #ccc;
-		background-color: #161616;
+
+	.settings-btn {
+		position: absolute;
+		top: 0.5em;
+		right: 0.5em;
+		width: 2em;
+		height: 2em;
+
+		display: grid;
+		align-items: center;
+		justify-content: center;
 	}
-	.resource:hover {
-		border: 1px solid #bbb;
+
+	.settings {
+		display: grid;
+		gap: 0.5em;
+	}
+
+	input {
+		padding: 0.4em;
+	}
+
+	input + label {
+		margin-top: 1em;
+	}
+
+	em {
+		font-style: normal;
+		color: #3bb9e3;
+	}
+
+	.booking-label {
+		padding: 0.5em 1em;
+		margin: -0.5em;
+		float: right;
+		border-top-right-radius: 0.4em;
+		border-bottom-right-radius: 0.4em;
 	}
 }

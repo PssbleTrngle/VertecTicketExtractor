@@ -1,30 +1,50 @@
 import { render } from "preact";
 
-import {} from "shared";
-import preactLogo from "./assets/preact.svg";
+import { useCallback, useState } from "preact/hooks";
+import {
+  getSettings,
+  isLoginConfigured,
+  saveSettings,
+} from "shared/src/storage";
+import Loading from "./loading";
+import SettingsView from "./settings";
 import "./style.css";
+import TicketView from "./ticket";
+import use from "./use";
+
+type View = "default" | "settings";
 
 export function App() {
-  extrac;
+  const [view, setView] = useState<View>("default");
+  const toggleSettings = useCallback(
+    () =>
+      setView((current) => {
+        if (current === "settings") return "default";
+        return "settings";
+      }),
+    [setView]
+  );
 
   return (
-    <div>
-      <a href="https://preactjs.com" target="_blank">
-        <img src={preactLogo} alt="Preact logo" height="160" width="160" />
-      </a>
-      <h1>Get Started building Vite-powered Preact Apps </h1>
-      <section></section>
-    </div>
+    <>
+      <button class="settings-btn" onClick={toggleSettings}>
+        {view === "settings" ? "×" : "⚙️"}
+      </button>
+      <View view={view} />
+    </>
   );
 }
 
-function Resource(props) {
-  return (
-    <a href={props.href} target="_blank" class="resource">
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-    </a>
-  );
+export function View({ view }: { view: View }) {
+  const { value: settings } = use(getSettings);
+
+  if (!settings) return <Loading />;
+
+  if (!isLoginConfigured(settings) || view === "settings") {
+    return <SettingsView value={settings} onChange={saveSettings} />;
+  }
+
+  return <TicketView login={settings} />;
 }
 
-render(<App />, document.getElementById("app"));
+render(<App />, document.getElementById("app")!);

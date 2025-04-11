@@ -4,8 +4,6 @@
       "module": "ESNext",
       "strict": true,
       "outDir": "dist",
-      "types": [
-         "chrome-types"
-      ]
+      "moduleResolution": "bundler",
    }
 }

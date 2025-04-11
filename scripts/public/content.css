@@ -1,0 +1,26 @@
+.vertec-booking-btn {
+  margin: none;
+
+  font-size: 14px;
+  background-color: #2f6783;
+  color: rgb(182, 194, 207);
+  padding: 0 10px;
+  margin-bottom: 12px;
+  margin-right: 8px;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+
+  transition: background ease-out 0s;
+
+  &:hover {
+    background: #3d84a7;
+  }
+
+  &,
+  &:hover,
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}

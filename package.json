@@ -5,6 +5,7 @@
   },
   "workspaces": [
     "shared",
-    "popup"
+    "popup",
+    "scripts"
   ]
 }
