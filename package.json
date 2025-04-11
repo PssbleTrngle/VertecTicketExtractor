@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "solarlog-ticket-extractor",
   "description": "Created vertec text entry containing ticket IDs",
   "version": "0.0.0-dev",
