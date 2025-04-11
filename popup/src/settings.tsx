@@ -26,6 +26,13 @@ export default function SettingsView({
         value={value.password}
         onInput={(e) => onChange({ password: e.currentTarget.value })}
       />
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://id.atlassian.com/manage-profile/security/api-tokens"
+      >
+        Where do I get an API-Token from?
+      </a>
     </div>
   );
 }

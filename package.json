@@ -1,8 +1,17 @@
 {
   "private": true,
+  "name": "solarlog-ticket-extractor",
+  "description": "Created vertec text entry containing ticket IDs",
+  "version": "0.0-dev",
   "scripts": {
-    "build": "pnpm --filter popup build"
+    "build": "pnpm --filter popup build && pnpm --filter scripts build",
+    "bundle": "pnpm pack --pack-destination build"
   },
+  "files": [
+    "manifest.json",
+    "scripts/dist",
+    "popup/dist"
+  ],
   "workspaces": [
     "shared",
     "popup",

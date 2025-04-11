@@ -1,74 +1,78 @@
 @keyframes bounce {
-	0%,
-	100% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.1);
-	}
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 #app {
-	font-family: sans-serif;
-	min-width: 400px;
-	padding: 0.3rem;
+  font-family: sans-serif;
+  min-width: 400px;
+  padding: 0.3rem;
 
-	.copy {
-		padding: 0.5em;
-		background: #aaa5;
-		border-radius: 0.4em;
+  .copy {
+    padding: 0.5em;
+    background: #aaa5;
+    border-radius: 0.4em;
 
-		user-select: none;
-		cursor: copy;
+    user-select: none;
+    cursor: copy;
 
-		&:active {
-			animation: bounce 0.3s ease;
-		}
-	}
+    &:active {
+      animation: bounce 0.3s ease;
+    }
+  }
 
-	.copy-section {
-		margin-top: 1em;
+  .copy-section {
+    margin-top: 1em;
 
-		.copy {
-			margin: 0.5em 0;
-		}
-	}
+    .copy {
+      margin: 0.5em 0;
+    }
+  }
 
-	.settings-btn {
-		position: absolute;
-		top: 0.5em;
-		right: 0.5em;
-		width: 2em;
-		height: 2em;
+  .settings-btn {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    width: 2em;
+    height: 2em;
 
-		display: grid;
-		align-items: center;
-		justify-content: center;
-	}
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
 
-	.settings {
-		display: grid;
-		gap: 0.5em;
-	}
+  .settings {
+    display: grid;
+    gap: 0.5em;
 
-	input {
-		padding: 0.4em;
-	}
+    a {
+      margin-top: 0.5em;
+    }
+  }
 
-	input + label {
-		margin-top: 1em;
-	}
+  input {
+    padding: 0.4em;
+  }
 
-	em {
-		font-style: normal;
-		color: #3bb9e3;
-	}
+  input + label {
+    margin-top: 1em;
+  }
 
-	.booking-label {
-		padding: 0.5em 1em;
-		margin: -0.5em;
-		float: right;
-		border-top-right-radius: 0.4em;
-		border-bottom-right-radius: 0.4em;
-	}
+  em {
+    font-style: normal;
+    color: #3bb9e3;
+  }
+
+  .booking-label {
+    padding: 0.5em 1em;
+    margin: -0.5em;
+    float: right;
+    border-top-right-radius: 0.4em;
+    border-bottom-right-radius: 0.4em;
+  }
 }
