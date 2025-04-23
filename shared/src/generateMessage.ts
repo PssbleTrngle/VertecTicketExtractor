@@ -1,12 +1,12 @@
+import { getSettings } from "./storage";
 import TicketData from "./TicketData";
 
-const defaultMessage = "Development";
-
-export default function generateMessage(
+export default async function generateMessage(
   { ticket, initiative }: TicketData,
   message?: string
 ) {
-  const ticketMessage = `[${ticket.key}]: ${message || defaultMessage}`;
+  const { defaultMessage } = await getSettings();
+  const ticketMessage = `${ticket.key}: ${message || defaultMessage}`;
   if (!initiative) return ticketMessage;
-  return `[${initiative.key}],${ticketMessage}`;
+  return `${initiative.key}, ${ticketMessage}`;
 }

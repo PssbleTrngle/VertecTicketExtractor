@@ -3,16 +3,21 @@ export type Login = {
   password: string;
 };
 
-export type Settings = Partial<Login>;
+export type Settings = Partial<Login> & {
+  defaultMessage: string;
+};
 
 export async function saveSettings(settings: Partial<Settings>) {
   await chrome.storage.sync.set(settings);
 }
 
-export async function getSettings() {
-  return chrome.storage.sync.get() as Settings;
+export async function getSettings(): Promise<Settings> {
+  const saved = (await chrome.storage.sync.get()) as Partial<Settings>;
+  return { defaultMessage: "Implementation", ...saved };
 }
 
-export function isLoginConfigured(settings: Settings): settings is Login {
+export function isLoginConfigured(
+  settings: Settings
+): settings is Login & Settings {
   return !!settings.username && !!settings.password;
 }

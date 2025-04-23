@@ -1,7 +1,7 @@
 {
   "name": "Vertec Ticket Extractor",
   "description": "Created vertec text entry containing ticket IDs",
-  "version": "0.0.0-dev",
+  "version": "0.0.0",
   "manifest_version": 3,
   "permissions": ["activeTab", "tabs", "storage"],
   "action": {

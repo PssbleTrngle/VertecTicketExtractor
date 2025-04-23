@@ -1,23 +1,25 @@
-import { useCallback, useMemo, useState } from "preact/hooks";
-import { extractTicket, generateMessage } from "shared";
-import { BookingType } from "shared/src/extractTicket";
-import { Login } from "shared/src/storage";
+import { useCallback, useState } from "preact/hooks";
+import {
+  BookingType,
+  Login,
+  bookingColors,
+  extractTicket,
+  generateMessage,
+} from "shared";
 import Loading from "./loading";
 import use from "./use";
 
-const bookingColors: Record<BookingType, string> = {
-  Capex: "#d66647",
-  Opex: "#7747d6",
-};
-
 export default function TicketView({ login }: { login: Login }) {
-  const { value: extracted, loading } = use(() => extractTicket(login));
+  const { value: extracted, loading } = use(
+    () => extractTicket(login),
+    [login]
+  );
   const [message, setMessage] = useState("");
 
-  const generated = useMemo(
-    () => extracted && generateMessage(extracted, message),
-    [message, extracted]
-  );
+  const { value: generated } = use(async () => {
+    if (!extracted) return extracted;
+    return generateMessage(extracted, message);
+  }, [message, extracted]);
 
   const copy = useCallback(() => {
     if (!generated) return;

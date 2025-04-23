@@ -33,6 +33,13 @@ export default function SettingsView({
       >
         Where do I get an API-Token from?
       </a>
+
+      <input
+        id="defaultMessage"
+        placeholder="Default Message"
+        value={value.defaultMessage}
+        onInput={(e) => onChange({ defaultMessage: e.currentTarget.value })}
+      />
     </div>
   );
 }

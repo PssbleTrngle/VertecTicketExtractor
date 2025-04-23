@@ -1,4 +1,5 @@
 import {
+  bookingColors,
   extractTicket,
   generateMessage,
   getSettings,
@@ -34,15 +35,23 @@ window.addEventListener("load", async () => {
     }
 
     const buttons = getButtonsBar();
-    buttons?.append(button);
+    buttons?.appendChild(button);
 
     const extracted = await extractTicket(login, location.href);
     if (!extracted) throw new Error("Ticket not found");
 
+    if (extracted.bookingType) {
+      const info = createButton();
+      info.innerText = extracted.bookingType;
+      info.style.background = bookingColors[extracted.bookingType];
+      info.style.color = "white";
+      buttons.appendChild(info);
+    }
+
     button.innerText = "Vertec Entry";
 
-    button.addEventListener("click", () => {
-      const generated = generateMessage(extracted);
+    button.addEventListener("click", async () => {
+      const generated = await generateMessage(extracted);
       navigator.clipboard.writeText(generated);
       button.innerText = "Copied!";
 

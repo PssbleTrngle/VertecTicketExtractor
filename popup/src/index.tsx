@@ -1,11 +1,7 @@
 import { render } from "preact";
 
 import { useCallback, useState } from "preact/hooks";
-import {
-  getSettings,
-  isLoginConfigured,
-  saveSettings,
-} from "shared/src/storage";
+import { getSettings, isLoginConfigured, saveSettings } from "shared";
 import Loading from "./loading";
 import SettingsView from "./settings";
 import "./style.css";
@@ -36,7 +32,7 @@ export function App() {
 }
 
 export function View({ view }: { view: View }) {
-  const { value: settings } = use(getSettings);
+  const { value: settings } = use(getSettings, []);
 
   if (!settings) return <Loading />;
 

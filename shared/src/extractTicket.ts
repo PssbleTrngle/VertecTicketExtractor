@@ -7,6 +7,11 @@ const regex = /https:\/\/solarlog\.atlassian\.net\/browse\/([\w-_]+)/;
 const bookingTypes = ["Opex", "Capex"] as const;
 export type BookingType = (typeof bookingTypes)[number];
 
+export const bookingColors: Record<BookingType, string> = {
+  Capex: "#d66647",
+  Opex: "#7747d6",
+};
+
 function isBookingType(label: string): label is BookingType {
   return bookingTypes.includes(label as BookingType);
 }
